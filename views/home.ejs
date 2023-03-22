@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>To DO List</title>
+</head>
+
+<body>
+    <div class="box">
+        <h1 id="heading">
+            <%=today%>
+        </h1>
+    </div>
+
+    <!-- scriptlelt tag before and after js lines
+    <% if(today==="Saturday" || today==="Sunday" ){ %>
+        <h1 style="color: green;">It Is <%=today%>
+        </h1>
+        <% } else{ %>
+            <h1 style="color: red;">It Is 
+            </h1>
+            <% } %>
+ -->
+    <div class="box">
+
+        <% for(var i=0;i<items.length;i++){ %>
+            <form action="/checked" method="post">
+                <div class="item">
+                    <input type="checkbox" name="checkbox" id="" value="<%=items[i]._id%> <%=today%>" onChange="this.form.submit()">
+                    <p>
+    
+                        <%=items[i].task%>
+                    </p>
+                </div>
+            </form>
+            
+
+            <% } %>
+
+                <form action="/" method="post" class="add">
+                    <input type="text" name="choice" placeholder="New" autocomplete="off">
+                    <button type="submit" value="<%=today%>" name="list">+</button>
+                </form>
+    </div>
+
+</body>
+
+</html>
